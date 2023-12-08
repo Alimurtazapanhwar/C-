@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main (){
+	int n,sum;
+	cout<<"Enter the value of ARRAY:";
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++){
+		cout<<"Enter the value of Array"<<i<<":";
+		cin>>arr[i];
+		sum+=arr[i];
+	}
+	cout<<"sum of elements :"<<sum<<endl;
+	return 0;
+}
