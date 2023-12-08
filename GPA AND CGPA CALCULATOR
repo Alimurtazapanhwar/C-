@@ -1,1 +1,141 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+// Function to calculate GPA
+void calculateGPA() {
+    int No_Of_Subs;
+    cout << "Enter No of Subjects: ";
+    cin >> No_Of_Subs;
+    double credits[No_Of_Subs];
+    double points[No_Of_Subs];
+    double gpa[No_Of_Subs];
+    double totalCredits = 0;
+    double sum = 0;
+
+    cout << "------------------------------------------------" << endl;
+    cout << "|                GPA Calculator                |" << endl;
+    cout << "------------------------------------------------" << endl;
+
+    for (int i = 0; i < No_Of_Subs; i++) {
+        cout << "Enter Credits of subject " << i + 1 << ": ";
+        cin >> credits[i];
+        cout << "Enter points of Subject " << i + 1 << ": ";
+        cin >> points[i];
+        cout << "------------------------------------------------" << endl;
+        totalCredits += credits[i];
+        sum += credits[i] * points[i];
+        gpa[i] = points[i] / 10; // Assuming marks are out of 100
+    }
+
+    cout << endl << endl;
+    cout << "Total points: " << sum << endl;
+    cout << "Total Credits: " << totalCredits << endl;
+    cout << "Total GPA: " << sum / totalCredits << endl;
+
+    cout << "\n Press any key to go back to Main Menu...";
+    getch();
+
+    int No_Of_Sems;
+    double semesters[No_Of_Sems];
+    double semTotal = 0;
+    for (int i = 0; i < No_Of_Sems; i++) {
+        cout << "Enter Semester #" << i + 1 << " GPA: ";
+        cin >> semesters[i];
+    }
+
+    for (int i = 0; i < No_Of_Sems; i++) {
+        semTotal += semesters[i];
+    }
+    cout << "Your CGPA: " << semTotal / No_Of_Sems << endl;
+}
+
+// Function to calculate CGPA
+void calculateCGPA() {
+    int No_Of_Sems;
+    cout << "Enter No of Semesters: ";
+    cin >> No_Of_Sems;
+    double semesters[No_Of_Sems];
+    double semTotal = 0;
+
+    cout << "------------------------------------------------" << endl;
+    cout << "|                GPA Calculator                |" << endl;
+    cout << "------------------------------------------------" << endl;
+
+    for (int i = 0; i < No_Of_Sems; i++) {
+        cout << "Enter Semester #" << i + 1 << " GPA: ";
+        cin >> semesters[i];
+    }
+
+    for (int i = 0; i < No_Of_Sems; i++) {
+        semTotal += semesters[i];
+    }
+    cout << "Your CGPA: " << semTotal / No_Of_Sems << endl;
+
+    cout << "\n Press any key to go back to Main Menu...";
+    getch();
+}
+
+// Function to display instructions
+void instructions() {
+    system("cls");
+    cout << endl << endl;
+    cout << "How to calculate GPA and CGPA :" << endl;
+    cout << "-------------------------------" << endl << endl;
+    cout << "GPA = sum of (credit * points) / total credits " << endl;
+    cout << "sum of GPA / number of semesters " << endl;
+    cout << endl << endl;
+    cout << "Grade - points table :" << endl;
+    cout << "--------------------------------" << endl;
+    cout << "     \tGrade \t\t 4.0 scale     " << endl;
+    cout << "--------------------------------" << endl;
+    cout << "\tA+ \t\t 4.0 " << endl;
+    cout << "\tA- \t\t 3.67 " << endl;
+    cout << "\tB+ \t\t 3.3 " << endl;
+    cout << "\tB \t\t 3.0 " << endl;
+    cout << "\tB- \t\t 2.67 " << endl;
+    cout << "\tC+ \t\t 2.3 " << endl;
+    cout << "\tC \t\t 2.0 " << endl;
+    cout << "\tC- \t\t 1.67 " << endl;
+    cout << "\tF \t\t 0.0 " << endl;
+
+    cout << "\n Press any key to go back to main menu ...";
+    getch();
+}
+
+int main() {
+    do {
+        system("cls");
+        cout << "--------------------------------------" << endl;
+        cout << "|        GPA AND CGPA CACULATOR       |" << endl;
+        cout << "--------------------------------------" << endl;
+        cout << "1. Calculate GPA" << endl;
+        cout << "2. Calculate CGPA " << endl;
+        cout << "3. How to calculate GPA" << endl;
+        cout << "4. Quit   " << endl << endl;
+
+        cout << "Select Option :" << endl;
+        char op = 0;
+        cin >> op;
+
+        switch (op) {
+            case '1':
+                calculateGPA();
+                break;
+            case '2':
+                calculateCGPA();
+                break;
+            case '3':
+                instructions();
+                break;
+            case '4':
+                return 0;
+            default:
+                cout << "Invalid option. Enter again." << endl;
+        }
+    } while (1);
+
+    return 0;
+}
 
